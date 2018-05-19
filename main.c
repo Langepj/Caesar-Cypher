@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
 
 int get_key(){
     int c;
-
+    //TODO: Handle bad input
     printf("Enter character: ");
     c = getchar();
 
@@ -72,5 +72,6 @@ int code(char fname[], char *mode){
 }
 
 void print_help(){
+    //TODO: Write Help Text
     printf("Help text goes here. \n");
 }
