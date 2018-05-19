@@ -59,10 +59,15 @@ int code(char fname[], char *mode){
         if(buffer[j] == ' ' || buffer[j] == '\n' )
             c = buffer[j];
         else if (strcmp(mode, "e") == 0) {
-            c = ((buffer[j] - 96) + key) % 25 + 96;
+            c = c = ((buffer[j] - 96) + key) % 25 + 96;
         } else {
-            c =  buffer[j] - 96 > key ? ((buffer[j] - 96) - key) % 25 + 96 : 25 + ((buffer[j] - 96) - key) + 96;
+            if (buffer[j] - 96 > key) {
+                c = ((buffer[j] - 96) - key) % 25 + 96;
+            } else {
+                c = 25 + ((buffer[j] - 96) - key) + 96;
+            }
         }
+
         fputc(c , fp);
     }
     fclose(fp);
